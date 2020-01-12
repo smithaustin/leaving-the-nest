@@ -28,11 +28,7 @@ export class TopBar extends Component {
                 justify="flex-start"
                 alignItems="center"    
             >
-<<<<<<< HEAD
                 <img src="./assets/logo.svg"></img>
-=======
-                <h1 style={{color: "#29066B"}}>Leave the Nest</h1>
->>>>>>> 285a4e7f5ab0cb91cb2df5e4900f19c380809cb0
             </Grid>
         );
     }
