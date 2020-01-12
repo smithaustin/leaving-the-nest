@@ -13,6 +13,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 //   let finalData = [];
 //   const selectedPopulationOption = state.population;
 
+// eslint-disable-next-line
 const data = {
   places: [
     {

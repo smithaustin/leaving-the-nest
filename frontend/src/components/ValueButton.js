@@ -8,7 +8,7 @@ export class ValueButton extends Component {
       <div>
           
           <Button className="valueButton" color={type === value ? "primary" : "default"} onClick={() => click(type)}>
-                <img src={"./assets/" + this.props.type +".svg"} style={{display:"block"}}></img>
+                <img src={"./assets/" + this.props.type +".svg"} alt="pic" style={{display:"block"}} />
                 <p>{type}</p>
           </Button>
       </div>
