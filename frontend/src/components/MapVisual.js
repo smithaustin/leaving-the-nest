@@ -29,7 +29,7 @@ const data = {
             safety_rating: 9
         },
         {
-            name: "montreal",
+            name: "montréal",
             population: 1000000000,
             lat: 45.508888,
             long: -73.561668,
@@ -101,7 +101,7 @@ export class MapVisual extends Component {
             <div style={this.state.hover ? { cursor: "pointer" } : {}}>
                 <Map
                     //eslint-disable-next-line
-                    style="mapbox://styles/mapbox/outdoors-v10"
+                    style="mapbox://styles/mapbox/light-v10"
                     containerStyle={{
                         height: "90vh"
                     }}
@@ -112,23 +112,27 @@ export class MapVisual extends Component {
                         const name = place.name;
                         return (
                             <Layer
-                                type="symbol"
+                                type="circle"
                                 key={name}
                                 id={name}
-                                layout={{
-                                    "icon-image": "school-15",
-                                    "text-field": name,
-                                    "text-allow-overlap": true,
-                                    "text-ignore-placement": true,
-                                    "text-anchor": "bottom-right",
-                                    "text-justify": "right",
-                                    "text-line-height": 2.3,
-                                    "icon-size":
-                                        (this.state.hover && this.state.hover.name === name) ||
-                                            (this.state.selected && this.state.selected.name === name)
-                                            ? 1.5
-                                            : 1.0
+                                paint={{
+                                    "circle-radius": 15,
+                                    "circle-color": "#29066B"
                                 }}
+                                // layout={{
+                                //     "icon-image": "school-15",
+                                //     "text-field": name,
+                                //     "text-allow-overlap": true,
+                                //     "text-ignore-placement": true,
+                                //     "text-anchor": "bottom-right",
+                                //     "text-justify": "right",
+                                //     "text-line-height": 2.3,
+                                //     "icon-size":
+                                //         (this.state.hover && this.state.hover.name === name) ||
+                                //             (this.state.selected && this.state.selected.name === name)
+                                //             ? 1.5
+                                //             : 1.0
+                                // }}
                             >
                                 <Feature
                                     coordinates={[place.long, place.lat]}

@@ -1,12 +1,7 @@
 import React, { Component } from "react";
 import Grid from "@material-ui/core/Grid";
 import axios from 'axios';
-// 
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
+
 
 export class TopBar extends Component {
     state = {
@@ -27,14 +22,13 @@ export class TopBar extends Component {
 
     render() {
         return (
-            <Grid 
+            <Grid
                 container 
-                style={{ border: "1px solid green"}} 
                 direction="row"
                 justify="flex-start"
                 alignItems="center"    
             >
-                <h1>Leave the Nest</h1>
+                <h1 style={{color: "#29066B"}}>Leave the Nest</h1>
             </Grid>
         );
     }

@@ -80,19 +80,19 @@ export class SideControl extends Component {
         const distance = this.props.distance;
 
         return (
-            <div>
-                <div>
-                    <h2>Current Location</h2>
+            <Grid container>
+                <Grid item>
+                    <h2 style={{color: "#29066B"}}>Current Location</h2>
                     {this.props.coords == true &&
                         <p>{this.props.coords}</p>
                     }
                     <p>Vancouver</p>
-                </div>
+                </Grid>
 
-                <div style={{ border: "1px solid black", width: "100%" }}>
-                    <h2>Industry</h2>
+                <Grid item style={{ width: "100%" }}>
+                    {/* <h2>Industry</h2> */}
                     {this.state.industries.length > 0 && (
-                        <FormControl style={{ border: "1px solid black" }}>
+                        <FormControl style={{ width: "100%" }}>
                             <Select
                                 value={this.state.industry}
                                 onChange={this.handleIndustryChange}
@@ -103,14 +103,10 @@ export class SideControl extends Component {
                             </Select>
                         </FormControl>
                     )}
-                </div>
+                </Grid>
 
-                {/* Population Density */}
-                <div>
-                    <h2>Population</h2>
-
-
-
+                <Grid item style={{border: '3px solid #C4C4C4', width: "100%"}}>
+                    <h2 style={{color: "#29066B"}}>Population</h2>
                     <ButtonGroup size="small" aria-label="small outlined button group">
                         {["Small", "Medium", "Large", "All"].map((value, index) => {
                             return <ValueButton
@@ -120,26 +116,28 @@ export class SideControl extends Component {
                                     click={this.handlePopulationChange}
                         />
                         })}
+
+                        {/* <ValueButton type={0} key={0} value={this.state.population} /> */}
                     </ButtonGroup>
-                </div>
-                <div>
-                    <h2>Distance</h2>
+                </Grid>
+                <Grid item style={{border: '3px solid #C4C4C4'}}>
+                    <h2 style={{color: "#29066B"}}>Distance</h2>
                     <ButtonGroup size="small" aria-label="small outlined button group">
                         <Button>Within Province</Button>
                         <Button>Within Canada</Button>
                         <Button>Out of Country</Button>
                     </ButtonGroup>
-                </div>
+                </Grid>
 
-                <div>
-                    <h2>Landscape</h2>
+                <Grid item>
+                    <h2 style={{color: "#29066B"}}>Landscape</h2>
                     <ButtonGroup size="small" aria-label="small outlined button group">
                         <Button>Mountain</Button>
                         <Button>Costal</Button>
                         <Button>Urban</Button>
                     </ButtonGroup>
-                </div>
-            </div>
+                </Grid>
+            </Grid>
         );
     }
 }
