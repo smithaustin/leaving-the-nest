@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import ReactMapboxGl, { Layer, Feature } from "react-mapbox-gl";
 import Grid from "@material-ui/core/Grid";
 import DataGraph from "./componetns/DataGraph";
-import PopulationButton from "./componetns/PopulationButton";
+import ValueButton from "./componetns/ValueButton";
 import { geolocated } from "react-geolocated";
-import Distance from "geo-distance";
+import { getDistance } from "geolib";
 
 const Map = ReactMapboxGl({
   scrollZoom: false,
@@ -78,6 +78,7 @@ export class Search extends Component {
   state = {
     // Options
     population: "all", // small (<10,000), medium (100,000), large (1,000,000+), all
+    distance: "province", // province, country, out
 
     // Map
     selected: undefined,
@@ -89,38 +90,33 @@ export class Search extends Component {
   };
 
   render() {
-    //   return !this.props.isGeolocationAvailable ? (
-    //     <div>Your browser does not support Geolocation</div>
-    // ) : !this.props.isGeolocationEnabled ? (
-    //     <div>Geolocation is not enabled</div>
-    // ) : this.props.coords ?
-
-    if (!this.props.coords)
-      return <p>Loading geolocation......</p>;
+    if (!this.props.coords) return <p>Loading geolocation......</p>;
 
     return (
       <div style={{ height: "100%" }}>
         <Grid container spacing={0}>
           <Grid item xs={3} style={{ border: "1px solid red" }}>
-            <PopulationButton
+            <p>Population</p>
+
+            <ValueButton
               type="small"
-              population={this.state.population}
-              populationClick={this.populationClick}
+              value={this.state.population}
+              click={this.populationClick}
             />
-            <PopulationButton
+            <ValueButton
               type="medium"
-              population={this.state.population}
-              populationClick={this.populationClick}
+              value={this.state.population}
+              click={this.populationClick}
             />
-            <PopulationButton
+            <ValueButton
               type="large"
-              population={this.state.population}
-              populationClick={this.populationClick}
+              value={this.state.population}
+              click={this.populationClick}
             />
-            <PopulationButton
+            <ValueButton
               type="all"
-              population={this.state.population}
-              populationClick={this.populationClick}
+              value={this.state.population}
+              click={this.populationClick}
             />
           </Grid>
           <Grid item xs={6} style={{ border: "1px solid blue" }}>
@@ -173,15 +169,22 @@ export class Search extends Component {
               <div>
                 <p>
                   <b>Selected:</b> {this.state.selected.name}
+                  <br />
                   <b>Population:</b> {this.state.selected.population}
-                  {/* <b>Distance:</b> {Distance.between({
+                  <br />
+                  <b>Distance:</b>{" "}
+                  {getDistance(
+                    {
                       lat: this.state.selected.lat,
                       lon: this.state.selected.long
-                  }, {
-                    lat: this.props.coords.latitude,
-                    lon: this.props.coords.longitude
-                  })} */}
+                    },
+                    {
+                      lat: this.props.coords.latitude,
+                      lon: this.props.coords.longitude
+                    }
+                  )}
                 </p>
+
                 <DataGraph
                   title={"salary"}
                   data={data}
