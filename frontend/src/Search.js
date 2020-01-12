@@ -1,10 +1,25 @@
 import React, { Component } from "react";
 import ReactMapboxGl, { Layer, Feature } from "react-mapbox-gl";
 import Grid from "@material-ui/core/Grid";
-import DataGraph from "./componetns/DataGraph";
-import ValueButton from "./componetns/ValueButton";
+import DataGraph from "./components/DataGraph";
+import PopulationButton from "./components/PopulationButton";
+import { TopControls } from "./components/TopControls";
 import { geolocated } from "react-geolocated";
-import { getDistance } from "geolib";
+
+import axios from 'axios';
+// 
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import IndustrySelector from "./components/IndustrySelector";
+
+
+import Button from '@material-ui/core/Button';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
+import SideVisual from "./components/SideVisual";
+
 
 const Map = ReactMapboxGl({
   scrollZoom: false,
@@ -94,11 +109,27 @@ export class Search extends Component {
 
     return (
       <div style={{ height: "100%" }}>
-        <Grid container spacing={0}>
-          <Grid item xs={3} style={{ border: "1px solid red" }}>
-            <p>Population</p>
+        <Grid container spacing={0}> 
+          <Grid item xs={2} style={{ border: "1px solid red" }}>
+            <div>
+             <h2>Current Location</h2>
+             { this.props.coords == true &&
+                <p>{this.props.coords}</p>
+             }
+             <p>Vancouver</p>
+            </div>
 
-            <ValueButton
+            <div style={{ border: "1px solid black", width:"100%" }}>
+              <h2>Industry</h2>
+              <IndustrySelector/>
+            </div>
+            
+
+
+            {/* Population Density */}
+            <div>
+              <h2>Population Density</h2>
+            {/* <PopulationButton
               type="small"
               value={this.state.population}
               click={this.populationClick}
@@ -115,11 +146,38 @@ export class Search extends Component {
             />
             <ValueButton
               type="all"
-              value={this.state.population}
-              click={this.populationClick}
-            />
+              population={this.state.population}
+              populationClick={this.populationClick}
+            /> */}
+            <ButtonGroup size="small" aria-label="small outlined button group">
+              <Button>Small</Button>
+              <Button>Medium</Button>
+              <Button>Large</Button>
+              <Button>All</Button>
+              </ButtonGroup>
+            </div>
+
+            <div>
+             <h2>Distance from Home</h2>
+             <ButtonGroup size="small" aria-label="small outlined button group">
+              <Button>Within Province</Button>
+              <Button>Within Canada</Button>
+              <Button>Out of Country</Button>
+              </ButtonGroup>
+            </div>
+
+            <div>
+             <h2>Landscape</h2>
+              <ButtonGroup size="small" aria-label="small outlined button group">
+              <Button>Mountain</Button>
+              <Button>Costal</Button>
+              <Button>Urban</Button>
+              </ButtonGroup>
+            </div>
+
+
           </Grid>
-          <Grid item xs={6} style={{ border: "1px solid blue" }}>
+          <Grid item xs={7} style={{ border: "1px solid blue" }}>
             <div style={this.state.hover ? { cursor: "pointer" } : {}}>
               <Map
                 //eslint-disable-next-line
@@ -165,43 +223,7 @@ export class Search extends Component {
             </div>
           </Grid>
           <Grid item xs={3} style={{ border: "1px solid orange" }}>
-            {this.state.selected && (
-              <div>
-                <p>
-                  <b>Selected:</b> {this.state.selected.name}
-                  <br />
-                  <b>Population:</b> {this.state.selected.population}
-                  <br />
-                  <b>Distance:</b>{" "}
-                  {getDistance(
-                    {
-                      lat: this.state.selected.lat,
-                      lon: this.state.selected.long
-                    },
-                    {
-                      lat: this.props.coords.latitude,
-                      lon: this.props.coords.longitude
-                    }
-                  )}
-                </p>
-
-                <DataGraph
-                  title={"salary"}
-                  data={data}
-                  placeName={this.state.selected.name}
-                />
-                <DataGraph
-                  title={"cost_of_living"}
-                  data={data}
-                  placeName={this.state.selected.name}
-                />
-                <DataGraph
-                  title={"safety_rating"}
-                  data={data}
-                  placeName={this.state.selected.name}
-                />
-              </div>
-            )}
+           <SideVisual />
           </Grid>
         </Grid>
       </div>
