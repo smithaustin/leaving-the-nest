@@ -7,6 +7,7 @@ import DataTest from './DataTest';
 function App() {
   return (
     <div className="App">
+
        <nav>
         <NavLink exact activeClassName="active-link" to="/">Home</NavLink>
         <br />
