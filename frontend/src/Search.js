@@ -3,6 +3,8 @@ import ReactMapboxGl, { Layer, Feature } from "react-mapbox-gl";
 import Grid from "@material-ui/core/Grid";
 import DataGraph from "./componetns/DataGraph";
 import PopulationButton from "./componetns/PopulationButton";
+import { geolocated } from "react-geolocated";
+import Distance from "geo-distance";
 
 const Map = ReactMapboxGl({
   scrollZoom: false,
@@ -47,26 +49,27 @@ function getData(state) {
   let finalData = [];
   const selectedPopulationOption = state.population;
 
-  data.places.filter(place => {
-    const { population } = place;
-    console.log(population)
-    if (selectedPopulationOption === "large" && population > 1000000)
-      return true;
+  data.places
+    .filter(place => {
+      const { population } = place;
+      if (selectedPopulationOption === "large" && population > 1000000)
+        return true;
 
       if (
         selectedPopulationOption === "medium" &&
-        population >= 10000 && population <= 1000000
+        population >= 10000 &&
+        population <= 1000000
       )
         return true;
-  
 
-        if (selectedPopulationOption === "small" && population <= 10000)
+      if (selectedPopulationOption === "small" && population <= 10000)
         return true;
 
-    if (selectedPopulationOption === "all") return true;
+      if (selectedPopulationOption === "all") return true;
 
-    return false;
-  }).forEach(value => finalData.push(value));
+      return false;
+    })
+    .forEach(value => finalData.push(value));
 
   return finalData;
 }
@@ -86,6 +89,15 @@ export class Search extends Component {
   };
 
   render() {
+    //   return !this.props.isGeolocationAvailable ? (
+    //     <div>Your browser does not support Geolocation</div>
+    // ) : !this.props.isGeolocationEnabled ? (
+    //     <div>Geolocation is not enabled</div>
+    // ) : this.props.coords ?
+
+    if (!this.props.coords)
+      return <p>Loading geolocation......</p>;
+
     return (
       <div style={{ height: "100%" }}>
         <Grid container spacing={0}>
@@ -141,10 +153,10 @@ export class Search extends Component {
                       <Feature
                         coordinates={[place.long, place.lat]}
                         onClick={obj => {
-                          this.setState({ selected: name });
+                          this.setState({ selected: place });
                         }}
                         onMouseEnter={obj => {
-                          this.setState({ hover: name });
+                          this.setState({ hover: place });
                         }}
                         onMouseLeave={obj => {
                           this.setState({ hover: undefined });
@@ -160,22 +172,30 @@ export class Search extends Component {
             {this.state.selected && (
               <div>
                 <p>
-                  <b>Selected:</b> {this.state.selected}
+                  <b>Selected:</b> {this.state.selected.name}
+                  <b>Population:</b> {this.state.selected.population}
+                  {/* <b>Distance:</b> {Distance.between({
+                      lat: this.state.selected.lat,
+                      lon: this.state.selected.long
+                  }, {
+                    lat: this.props.coords.latitude,
+                    lon: this.props.coords.longitude
+                  })} */}
                 </p>
                 <DataGraph
                   title={"salary"}
                   data={data}
-                  placeName={this.state.selected}
+                  placeName={this.state.selected.name}
                 />
                 <DataGraph
                   title={"cost_of_living"}
                   data={data}
-                  placeName={this.state.selected}
+                  placeName={this.state.selected.name}
                 />
                 <DataGraph
                   title={"safety_rating"}
                   data={data}
-                  placeName={this.state.selected}
+                  placeName={this.state.selected.name}
                 />
               </div>
             )}
@@ -186,4 +206,9 @@ export class Search extends Component {
   }
 }
 
-export default Search;
+export default geolocated({
+  positionOptions: {
+    enableHighAccuracy: false
+  },
+  userDecisionTimeout: 50000
+})(Search);
