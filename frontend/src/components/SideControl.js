@@ -109,12 +109,14 @@ export class SideControl extends Component {
                     <h2 style={{color: "#29066B"}}>Population</h2>
                     <ButtonGroup size="small" aria-label="small outlined button group">
                         {["Small", "Medium", "Large", "All"].map((value, index) => {
-                            return <ValueButton
+                            return (
+                                <ValueButton
                                     type={value}
                                     key={index}
                                     value={this.state.population}
                                     click={this.handlePopulationChange}
-                        />
+                                />
+                            )
                         })}
 
                         {/* <ValueButton type={0} key={0} value={this.state.population} /> */}
