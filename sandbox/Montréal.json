@@ -1,0 +1,175 @@
+{
+    "climate": {
+        "high": [
+            -4,
+            -3,
+            2,
+            9,
+            17,
+            24,
+            26,
+            26,
+            21,
+            13,
+            6,
+            -1
+        ],
+        "low": [
+            -12,
+            -11,
+            -6,
+            1,
+            8,
+            15,
+            18,
+            17,
+            13,
+            6,
+            0,
+            -8
+        ]
+    },
+    "crime": {
+        "high": [
+            102.7,
+            98.3,
+            97.7,
+            87.8,
+            79.5,
+            72.5,
+            76.1,
+            73.1
+        ]
+    },
+    "living_cost": 1203,
+    "labour": {
+        "Agriculture, forestry, fishing and hunting": {
+            "count": 5575,
+            "rate": 0.003062724038950159
+        },
+        "Mining, quarrying, and oil and gas extraction": {
+            "count": 2160,
+            "rate": 0.0011866338877367431
+        },
+        "Utilities": {
+            "count": 11975,
+            "rate": 0.006578676298910879
+        },
+        "Construction": {
+            "count": 84025,
+            "rate": 0.04616060760049993
+        },
+        "Manufacturing": {
+            "count": 176725,
+            "rate": 0.09708697861586849
+        },
+        "Wholesale trade": {
+            "count": 85240,
+            "rate": 0.046828089162351844
+        },
+        "Retail trade": {
+            "count": 217870,
+            "rate": 0.11969070607463159
+        },
+        "Transportation and warehousing": {
+            "count": 88900,
+            "rate": 0.04883877436101688
+        },
+        "Information and cultural industries": {
+            "count": 67355,
+            "rate": 0.03700265069838349
+        },
+        "Finance and insurance": {
+            "count": 92360,
+            "rate": 0.05073958605155814
+        },
+        "Real estate and rental and leasing": {
+            "count": 34100,
+            "rate": 0.018733433135103214
+        },
+        "Professional, scientific and technical services": {
+            "count": 172105,
+            "rate": 0.09454890057820933
+        },
+        "Management of companies and enterprises": {
+            "count": 2425,
+            "rate": 0.0013322162860007418
+        },
+        "Administrative and support, waste management and remediation services": {
+            "count": 88710,
+            "rate": 0.048734394528299294
+        },
+        "Educational services": {
+            "count": 142910,
+            "rate": 0.07851011522984165
+        },
+        "Health care and social assistance": {
+            "count": 221370,
+            "rate": 0.1216134924667976
+        },
+        "Arts, entertainment and recreation": {
+            "count": 42295,
+            "rate": 0.02323550013047479
+        },
+        "Accommodation and food services": {
+            "count": 123345,
+            "rate": 0.0677617392976336
+        },
+        "Other services (except public administration)": {
+            "count": 79135,
+            "rate": 0.043474200326873685
+        },
+        "Public administration": {
+            "count": 81695,
+            "rate": 0.044880581230857974
+        }
+    },
+    "commute_time": {
+        "Less than 15 minutes": {
+            "count": 272975,
+            "rate": 0.16958602930441616
+        },
+        "15 to 29 minutes": {
+            "count": 521490,
+            "rate": 0.3239762557815184
+        },
+        "30 to 44 minutes": {
+            "count": 428470,
+            "rate": 0.2661874749558135
+        },
+        "45 to 59 minutes": {
+            "count": 202860,
+            "rate": 0.12602700578695436
+        },
+        "60 minutes and over": {
+            "count": 183860,
+            "rate": 0.11422323417129758
+        }
+    },
+    "commute_mode": {
+        "Car, truck, van - as a driver": {
+            "count": 1013430,
+            "rate": 0.6295886734548075
+        },
+        "Car, truck, van - as a passenger": {
+            "count": 51850,
+            "rate": 0.03221157131585977
+        },
+        "Public transit": {
+            "count": 405265,
+            "rate": 0.2517689961296415
+        },
+        "Walked": {
+            "count": 89475,
+            "rate": 0.05558592755036747
+        },
+        "Bicycle": {
+            "count": 36415,
+            "rate": 0.022622649362912896
+        },
+        "Other method": {
+            "count": 13235,
+            "rate": 0.00822218218641088
+        }
+    }
+}
