@@ -16,7 +16,7 @@ export class SideVisual extends Component {
     }
 
     componentDidMount(props) {
-        axios.get('data/vancouver.json')
+        axios.get('data/' + this.props.location + '.json')
             .then(res => {
                 console.log(res.data)
                 this.setState({
@@ -32,16 +32,24 @@ export class SideVisual extends Component {
         console.log(this.props.location)
     }
 
+    componentWillUpdate(){
+        
+    }
+
     render() {
+        const location = this.props.location.charAt(0).toUpperCase() + this.props.location.slice(1)
         return (
             <div>
-                <h2>{this.props.location}</h2>
-                <h2>{this.props.industry}</h2>
-                <p>{this.props.population}</p>
+                <h1 style={{color: "#29066B"}}>{location}</h1>
+                <h2>Population of {this.props.population}</h2>
+                {/* <p>{this.props.population}</p> */}
+
+                <h2 style={{color: "#29066B"}}></h2>
+
                 <div>
                     {this.state.data && (
                         <AreaChart
-                            width={400}
+                            // width={}
                             height={400}
                             data={this.state.data.climate.high.map((value, index) => {
                                 return {name: index, t: value}
