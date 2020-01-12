@@ -3,11 +3,12 @@ import { Route, Switch, NavLink } from 'react-router-dom'
 import Home from './Home';
 import Search from './Search';
 import DataTest from './DataTest';
+import TopControls from './components/TopControls';
 
 function App() {
   return (
     <div className="App">
-
+{/* 
        <nav>
         <NavLink exact activeClassName="active-link" to="/">Home</NavLink>
         <br />
@@ -19,7 +20,10 @@ function App() {
         <Route exact path="/" component={Home} />
         <Route exact path="/search" component={Search} />
         <Route exact path="/datatest" component={DataTest} />
-      </Switch>
+      </Switch> */}
+
+      <TopControls/>
+      <Search />
     </div>
   );
 }
