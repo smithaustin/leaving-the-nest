@@ -49,7 +49,7 @@ export class LivingCostGraph extends Component {
         return(
             <div>
                 { this.state.data && (
-                <BarChart width={300} height={250}
+                <BarChart width={460} height={250}
                     data={this.state.data}
                     barCategoryGap={0}>
                     <CartesianGrid strokeDasharray="3 3" />
