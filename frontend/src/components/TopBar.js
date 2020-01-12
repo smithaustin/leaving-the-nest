@@ -8,7 +8,7 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
-export class TopControls extends Component {
+export class TopBar extends Component {
     state = {
         industries: []
     }
@@ -40,4 +40,4 @@ export class TopControls extends Component {
     }
 }
 
-export default TopControls;
+export default TopBar;
