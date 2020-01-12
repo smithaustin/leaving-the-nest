@@ -1,5 +1,3 @@
-# leaving-the-nest
-nwHacks 2020 project
 <h2  align="center">leaving-the-nest-Page</h2>
 <p align="center">nwHacks 2020 project</p>
 
