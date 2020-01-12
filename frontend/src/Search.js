@@ -197,9 +197,15 @@ export class Search extends Component {
                       id={name}
                       layout={{
                         "icon-image": "school-15",
+                        "text-field": name,
+                        "text-allow-overlap": true,
+                        "text-ignore-placement": true,
+                        "text-anchor": "bottom-right",
+                        "text-justify": "right",
+                        "text-line-height": 2.3,
                         "icon-size":
-                          this.state.hover === name ||
-                          this.state.selected === name
+                          (this.state.hover && this.state.hover.name === name )||
+                          ( this.state.selected&& this.state.selected.name === name)
                             ? 1.5
                             : 1.0
                       }}
