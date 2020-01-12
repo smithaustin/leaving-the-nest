@@ -1,6 +1,5 @@
 import React from 'react';
 import Main from './Main';
-import DataTest from './DataTest';
 import TopBar from './components/TopBar';
 
 function App() {

@@ -5,73 +5,38 @@ import SideControl from "./components/SideControl";
 import SideVisual from "./components/SideVisual";
 import MapVisual from "./components/MapVisual";
 // 
-import axios from 'axios';
-// 
 import Grid from "@material-ui/core/Grid";
 import CircularProgress from "@material-ui/core/CircularProgress";
 // 
 
+// function getData(state) {
+//   let finalData = [];
+//   const selectedPopulationOption = state.population;
 
-const data = {
-  places: [
-    {
-      name: "toronto",
-      population: 5000,
-      lat: 43.65107,
-      long: -79.347015,
-      salary: 30000,
-      cost_of_living: 1000,
-      safety_rating: 5
-    },
-    {
-      name: "vancouver",
-      population: 50000,
-      lat: 49.246292,
-      long: -123.116226,
-      salary: 8000,
-      cost_of_living: 2000,
-      safety_rating: 9
-    },
-    {
-      name: "montreal",
-      population: 1000000000,
-      lat: 45.508888,
-      long: -73.561668,
-      salary: 1000,
-      cost_of_living: 1500,
-      safety_rating: 3
-    }
-  ]
-};
+//   data.places
+//     .filter(place => {
+//       const { population } = place;
+//       if (selectedPopulationOption === "large" && population > 1000000)
+//         return true;
 
-function getData(state) {
-  let finalData = [];
-  const selectedPopulationOption = state.population;
+//       if (
+//         selectedPopulationOption === "medium" &&
+//         population >= 10000 &&
+//         population <= 1000000
+//       )
+//         return true;
 
-  data.places
-    .filter(place => {
-      const { population } = place;
-      if (selectedPopulationOption === "large" && population > 1000000)
-        return true;
+//       if (selectedPopulationOption === "small" && population <= 10000)
+//         return true;
 
-      if (
-        selectedPopulationOption === "medium" &&
-        population >= 10000 &&
-        population <= 1000000
-      )
-        return true;
+//       if (selectedPopulationOption === "all") return true;
 
-      if (selectedPopulationOption === "small" && population <= 10000)
-        return true;
+//       return false;
+//     })
+//     .forEach(value => finalData.push(value));
 
-      if (selectedPopulationOption === "all") return true;
-
-      return false;
-    })
-    .forEach(value => finalData.push(value));
-
-  return finalData;
-}
+//   return finalData;
+// }
 
 export class Main extends Component {
   state = {
@@ -121,16 +86,16 @@ export class Main extends Component {
     return (
       <div style={{ height: "100%" }}>
         <Grid container spacing={0}>
-          <Grid item xs={2} style={{ border: "1px solid red" }}>
+          <Grid item xs={2} style={{ border: "1px solid black" }}>
             <SideControl onIndustryChange={this.handleIndustryChange} onPopulationChange={this.handlePopulationChange}/>
             <p></p>
 
 
           </Grid>
-          <Grid item xs={7} style={{ border: "1px solid blue" }}>
+          <Grid item xs={7} style={{ border: "1px solid black" }}>
             <MapVisual onLocationChange={this.handleLocationChange} />
           </Grid>
-          <Grid item xs={3} style={{ border: "1px solid orange" }}>
+          <Grid item xs={3} style={{ border: "1px solid black" }}>
             {(this.state.location && this.state.industry) && (
               <SideVisual location={this.state.location} industry={this.state.industry} population={this.state.population} />
             )}

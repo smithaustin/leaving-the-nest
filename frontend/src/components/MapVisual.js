@@ -96,7 +96,6 @@ export class MapVisual extends Component {
         this.setState({ population: size });
     };
     render() {
-        const location = this.props.location;
         return (
             <div style={this.state.hover ? { cursor: "pointer" } : {}}>
                 <Map

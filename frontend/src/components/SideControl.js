@@ -1,10 +1,7 @@
 import React, { Component } from "react";
 import Grid from "@material-ui/core/Grid";
-import axios from 'axios';
 // 
-import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
@@ -75,15 +72,11 @@ export class SideControl extends Component {
     }
 
     render() {
-        const population = this.props.population;
-        const industry = this.props.industry;
-        const distance = this.props.distance;
-
         return (
             <Grid container className="sideControl">
                 <Grid item>
                     <h2 style={{color: "#29066B"}}>Current Location</h2>
-                    {this.props.coords == true &&
+                    {this.props.coords &&
                         <p>{this.props.coords}</p>
                     }
                     <p>Vancouver</p>

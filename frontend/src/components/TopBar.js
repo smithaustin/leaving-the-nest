@@ -28,7 +28,7 @@ export class TopBar extends Component {
                 justify="flex-start"
                 alignItems="center"    
             >
-                <img className="logo" src="./assets/logo.svg"></img>
+                <img className="logo" alt="logo" src="./assets/logo.svg"></img>
             </Grid>
         );
     }

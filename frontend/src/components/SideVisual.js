@@ -1,10 +1,4 @@
 import React, { Component } from "react";
-import Grid from "@material-ui/core/Grid";
-import axios from 'axios';
-
-import {
-    LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, AreaChart, Area,
-} from 'recharts';
 import TemperatureGraph from "./TemperatureGraph";
 
 
@@ -17,7 +11,7 @@ export class SideVisual extends Component {
     }
 
     render() {
-        const location = this.props.location.charAt(0).toUpperCase() + this.props.location.slice(1)
+        // const location = this.props.location.charAt(0).toUpperCase() + this.props.location.slice(1)
         return (
             <div>
                 <h2>{this.props.location}</h2>

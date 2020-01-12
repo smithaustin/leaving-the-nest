@@ -6,7 +6,7 @@ export class ValueButton extends Component {
     const { type, value, click} = this.props;
     return (
       <div>
-          <img src={"./assets/"+this.value+".svg"}></img>
+          <img alt="pic" src={"./assets/"+this.value+".svg"}></img>
           <Button  color={type === value ? "primary" : "default"} onClick={() => click(type)}>
                 {type}
           </Button>
