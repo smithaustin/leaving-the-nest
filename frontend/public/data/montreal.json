@@ -1,34 +1,54 @@
 {
-    "climate": {
-        "high": [
-            -4,
-            -3,
-            2,
-            9,
-            17,
-            24,
-            26,
-            26,
-            21,
-            13,
-            6,
-            -1
-        ],
-        "low": [
-            -12,
-            -11,
-            -6,
-            1,
-            8,
-            15,
-            18,
-            17,
-            13,
-            6,
-            0,
-            -8
-        ]
-    },
+    "climate": [
+        {"month": "Jan",
+            "high":-4,
+            "low":-12
+        },
+        {"month": "Feb",
+            "high":-3,
+            "low":-11
+        },
+        {"month": "Mar",
+            "high":2,
+            "low":-6
+        },
+        {"month": "Apr",
+            "high":9,
+            "low":1
+        },
+        {"month": "May",
+            "high":17,
+            "low":8
+        },
+        {"month": "Jun",
+            "high":24,
+            "low":15
+        },
+        {"month": "Jul",
+            "high":26,
+            "low":18
+        },
+        {"month": "Aug",
+            "high":26,
+            "low":17
+        },
+        {"month": "Sep",
+            "high":21,
+            "low":13
+        },
+        {"month": "Oct",
+            "high":13,
+            "low":6
+        },
+        {"month": "Nov",
+            "high":6,
+            "low":0
+        },
+        {"month": "Dec",
+            "high":-1,
+            "low":-8
+        }
+    ],
     "crime": {
         "high": [
             102.7,

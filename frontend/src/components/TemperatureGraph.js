@@ -25,11 +25,11 @@ export class TemperatureGraph extends Component {
     }
 
     componentDidMount(){
-        axios.get('data/cities/' + this.props.location + '.json')
+        axios.get('data/' + this.props.location + '.json')
             .then(res => {
                 console.log(res.data.climate)
                 this.setState({
-                    data: res.data
+                    data: res.data.climate
             })
         })
     }
@@ -46,16 +46,15 @@ export class TemperatureGraph extends Component {
             <div>
                 { this.state.data && (
                     <AreaChart width={300} height={250}
-                    data={this.state.data.climate.high.map((value, index) => {
-                        return {name: index+1, t: value}
-                    })}
+                    data={this.state.data}
                     margin={{top: 20, right: 20, bottom: 20, left: 20}}>
                     <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="name" />
+                    <XAxis dataKey="month" />
                     <YAxis />
                     <Tooltip />
                     <Legend />
-                    <Area dataKey="t" stroke="#E7E34E" fill="#E7E34E" />
+                    <Area dataKey="high" stroke="#E7E34E" fill="#E7E34E" />
+                    <Area dataKey="low" stroke="#F7F4BF" fill="#F7F4BF" />
                 </AreaChart>
                 )}
             </div>
