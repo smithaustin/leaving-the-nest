@@ -15,6 +15,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import IndustrySelector from "./components/IndustrySelector";
 
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
@@ -94,19 +95,21 @@ export class Search extends Component {
     // Options
     population: "all", // small (<10,000), medium (100,000), large (1,000,000+), all
     distance: "province", // province, country, out
-
     // Map
     selected: undefined,
     hover: undefined
   };
 
-  populationClick = size => {
+  populationClick = (size) => {
     this.setState({ population: size });
   };
 
   render() {
-    if (!this.props.coords) return <p>Loading geolocation......</p>;
-
+    if (!this.props.coords){
+      return <div>
+        <CircularProgress />
+      </div>
+    };
     return (
       <div style={{ height: "100%" }}>
         <Grid container spacing={0}> 
@@ -128,7 +131,7 @@ export class Search extends Component {
 
             {/* Population Density */}
             <div>
-              <h2>Population Density</h2>
+              <h2>Population</h2>
             
            
    
@@ -158,7 +161,7 @@ export class Search extends Component {
             </div>
 
             <div>
-             <h2>Distance from Home</h2>
+             <h2>Distance</h2>
              <ButtonGroup size="small" aria-label="small outlined button group">
               <Button>Within Province</Button>
               <Button>Within Canada</Button>
@@ -229,7 +232,9 @@ export class Search extends Component {
             </div>
           </Grid>
           <Grid item xs={3} style={{ border: "1px solid orange" }}>
-           <SideVisual />
+            { this.state.selected && (
+                <SideVisual location={this.state.selected.name}/>
+            )}
           </Grid>
         </Grid>
       </div>

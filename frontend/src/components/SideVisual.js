@@ -3,11 +3,7 @@ import Grid from "@material-ui/core/Grid";
 import axios from 'axios';
 
 export class SideVisual extends Component {
-    state = {
-        industries: []
-    }
-
-    componentDidMount() {
+    componentDidMount(props) {
         // axios.get('data/industry_categories/industries.json')
         //     .then(res => {
         //         console.log(res.data)
@@ -17,13 +13,13 @@ export class SideVisual extends Component {
 
         // })
         // // navigator.geolocation.getCurrentPosition(success, error, options)
+        console.log(this.props.location)
     }
 
     render() {
         return (
             <div>
-                <h2>Side Visual</h2>
-                <p>tee</p>
+                <h2>{this.props.location}</h2>
             </div>
         );
     }
