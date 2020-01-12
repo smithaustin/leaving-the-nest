@@ -8,26 +8,6 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
-
-const options = {
-    enableHighAccuracy: true,
-    timeout: 5000,
-    maximumAge: 0
-};
-
-function success(pos) {
-    var crd = pos.coords;
-  
-    console.log('Your current position is:');
-    console.log(`Latitude : ${crd.latitude}`);
-    console.log(`Longitude: ${crd.longitude}`);
-    console.log(`More or less ${crd.accuracy} meters.`);
-  }
-  
-  function error(err) {
-    console.warn(`ERROR(${err.code}): ${err.message}`);
-  }
-
 export class TopControls extends Component {
     state = {
         industries: []
@@ -42,37 +22,21 @@ export class TopControls extends Component {
                 })
 
         })
-        navigator.geolocation.getCurrentPosition(success, error, options)
+        // navigator.geolocation.getCurrentPosition(success, error, options)
     }
 
     render() {
-    return (
-        <Grid 
-            container 
-            style={{ border: "1px solid green"}} 
-            direction="row"
-            justify="flex-start"
-            alignItems="center"    
-        >
-            <h1>Industry</h1>
-            <FormControl style={{ border: "1px solid black"}}>
-            {/* <InputLabel id="demo-simple-select-label">Age</InputLabel> */}
-            <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            // value={age}
-            // onChange={handleChange}
+        return (
+            <Grid 
+                container 
+                style={{ border: "1px solid green"}} 
+                direction="row"
+                justify="flex-start"
+                alignItems="center"    
             >
-                <MenuItem value="">
-                <em>None</em>
-                </MenuItem>
-                { this.state.industries.map((value, index) => {
-                    return <MenuItem key={index} value={10}>{value}</MenuItem>
-                })}
-            </Select>
-            </FormControl>
-        </Grid>
-    );
+                <h1>Leave the Nest</h1>
+            </Grid>
+        );
     }
 }
 
