@@ -20,3 +20,8 @@ code {
 .sideControl {
   padding: 0 15px;
 }
+
+.logo {
+  padding: 15px 20px;
+  width: 350px;
+}
