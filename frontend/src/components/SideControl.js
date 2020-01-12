@@ -80,7 +80,7 @@ export class SideControl extends Component {
         const distance = this.props.distance;
 
         return (
-            <Grid container>
+            <Grid container className="sideControl">
                 <Grid item>
                     <h2 style={{color: "#29066B"}}>Current Location</h2>
                     {this.props.coords == true &&
@@ -105,7 +105,7 @@ export class SideControl extends Component {
                     )}
                 </Grid>
 
-                <Grid item style={{border: '3px solid #C4C4C4', width: "100%"}}>
+                <Grid item style={{borderTop: '1px solid #C4C4C4', width: "100%"}}>
                     <h2 style={{color: "#29066B"}}>Population</h2>
                     <ButtonGroup size="small" aria-label="small outlined button group">
                         {["Small", "Medium", "Large", "All"].map((value, index) => {
@@ -122,7 +122,7 @@ export class SideControl extends Component {
                         {/* <ValueButton type={0} key={0} value={this.state.population} /> */}
                     </ButtonGroup>
                 </Grid>
-                <Grid item style={{border: '3px solid #C4C4C4'}}>
+                <Grid item style={{borderTop: '1px solid #C4C4C4'}}>
                     <h2 style={{color: "#29066B"}}>Distance</h2>
                     <ButtonGroup size="small" aria-label="small outlined button group">
                         <Button>Within Province</Button>
