@@ -80,7 +80,7 @@ export class SideControl extends Component {
         const distance = this.props.distance;
 
         return (
-            <div>
+            <div className="sideControl">
                 <div>
                     <h2>Current Location</h2>
                     {this.props.coords == true &&
@@ -89,7 +89,7 @@ export class SideControl extends Component {
                     <p>Vancouver</p>
                 </div>
 
-                <div style={{ border: "1px solid black", width: "100%" }}>
+                <div>
                     <h2>Industry</h2>
                     {this.state.industries.length > 0 && (
                         <FormControl style={{ border: "1px solid black" }}>
@@ -113,12 +113,14 @@ export class SideControl extends Component {
 
                     <ButtonGroup size="small" aria-label="small outlined button group">
                         {["Small", "Medium", "Large", "All"].map((value, index) => {
-                            return <ValueButton
+                            return (
+                                <ValueButton
                                     type={value}
                                     key={index}
                                     value={this.state.population}
                                     click={this.handlePopulationChange}
-                        />
+                                />
+                            )
                         })}
                     </ButtonGroup>
                 </div>

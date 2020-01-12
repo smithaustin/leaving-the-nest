@@ -34,7 +34,7 @@ export class TopBar extends Component {
                 justify="flex-start"
                 alignItems="center"    
             >
-                <h1>Leave the Nest</h1>
+                <img src="./assets/logo.svg"></img>
             </Grid>
         );
     }

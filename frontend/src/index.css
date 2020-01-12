@@ -16,3 +16,7 @@ code {
   color: pink;
   border-bottom: 1px solid white;
 }
+
+.sideControl {
+  padding: 0 15px;
+}
