@@ -3,7 +3,6 @@ import ReactMapboxGl, { Layer, Feature } from "react-mapbox-gl";
 import Grid from "@material-ui/core/Grid";
 import DataGraph from "./componetns/DataGraph";
 
-
 const Map = ReactMapboxGl({
   scrollZoom: false,
   interactive: false,
@@ -17,36 +16,36 @@ const data = {
       name: "toronto",
       lat: 43.65107,
       long: -79.347015,
-      cost_of_living: 1000,
       salary: 30000,
+      cost_of_living: 1000,
       safety_rating: 5
     },
     {
       name: "vancouver",
       lat: 49.246292,
       long: -123.116226,
+      salary: 8000,
       cost_of_living: 2000,
-      salary: 50000,
       safety_rating: 9
     },
     {
       name: "montreal",
       lat: 45.508888,
       long: -73.561668,
-      cost_of_living: 3000,
-      salary: 80000,
-      safety_rating: 9
+      salary: 1000,
+      cost_of_living: 1500,
+      safety_rating: 3
     }
   ]
 };
 
-function getSalaryData() {
+function getData(variableName) {
   let graphData = [];
 
   data.places.forEach(place => {
     graphData.push({
       name: place.name,
-      salary: place.salary
+      data: place[variableName]
     });
   });
 
@@ -113,9 +112,22 @@ export class Search extends Component {
             </div>
           </Grid>
           <Grid item xs={3} style={{ border: "1px solid orange" }}>
-            <h1>Selected: {this.state.selected}</h1>
+            <p>Selected: {this.state.selected}</p>
             {this.state.selected && (
-                <DataGraph data={getSalaryData()} name={this.state.selected}/>
+              <div>
+                <DataGraph
+                  data={getData("salary")}
+                  name={this.state.selected}
+                />
+                <DataGraph
+                  data={getData("cost_of_living")}
+                  name={this.state.selected}
+                />
+                <DataGraph
+                  data={getData("safety_rating")}
+                  name={this.state.selected}
+                />
+              </div>
             )}
           </Grid>
         </Grid>
