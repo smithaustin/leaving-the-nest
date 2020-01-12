@@ -59,7 +59,6 @@ export class Search extends Component {
   };
 
   render() {
-    console.log(this.state);
     return (
       <div style={{ height: "100%" }}>
         <Grid container spacing={0}>
@@ -112,17 +111,20 @@ export class Search extends Component {
             </div>
           </Grid>
           <Grid item xs={3} style={{ border: "1px solid orange" }}>
-            <p>Selected: {this.state.selected}</p>
             {this.state.selected && (
               <div>
+                <p><bOSelected: {this.state.selected}</p>
+                <p>Salary</p>
                 <DataGraph
                   data={getData("salary")}
                   name={this.state.selected}
                 />
+                <p>Cost of living</p>
                 <DataGraph
                   data={getData("cost_of_living")}
                   name={this.state.selected}
                 />
+                <p>Safety</p>
                 <DataGraph
                   data={getData("safety_rating")}
                   name={this.state.selected}
