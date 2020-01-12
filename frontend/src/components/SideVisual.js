@@ -14,6 +14,8 @@ export class SideVisual extends Component {
 
     render() {
         // const location = this.props.location.charAt(0).toUpperCase() + this.props.location.slice(1)
+        console.log(this.props)
+        console.log("----------")
         return (
             <div>
                 <h1>{this.props.location}</h1>
@@ -23,7 +25,7 @@ export class SideVisual extends Component {
                 <TemperatureGraph location={this.props.location}/>
                 <CommutingGraph location={this.props.location}/>
                 <h2>Living Cost</h2>
-                <LivingCostGraph/>
+                <LivingCostGraph place={this.props.location} />
             </div>
         );
     }

@@ -25,3 +25,10 @@ code {
   padding: 15px 20px;
   width: 350px;
 }
+
+.valueButton * {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
