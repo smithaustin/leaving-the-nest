@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ReactMapboxGl, { Layer, Feature } from "react-mapbox-gl";
 import Grid from "@material-ui/core/Grid";
 import DataGraph from "./componetns/DataGraph";
+import PopulationButton from "./componetns/PopulationButton";
 
 const Map = ReactMapboxGl({
   scrollZoom: false,
@@ -14,6 +15,7 @@ const data = {
   places: [
     {
       name: "toronto",
+      population: 5000,
       lat: 43.65107,
       long: -79.347015,
       salary: 30000,
@@ -22,6 +24,7 @@ const data = {
     },
     {
       name: "vancouver",
+      population: 50000,
       lat: 49.246292,
       long: -123.116226,
       salary: 8000,
@@ -30,6 +33,7 @@ const data = {
     },
     {
       name: "montreal",
+      population: 1000000000,
       lat: 45.508888,
       long: -73.561668,
       salary: 1000,
@@ -39,10 +43,46 @@ const data = {
   ]
 };
 
+function getData(state) {
+  let finalData = [];
+  const selectedPopulationOption = state.population;
+
+  data.places.filter(place => {
+    const { population } = place;
+    console.log(population)
+    if (selectedPopulationOption === "large" && population > 1000000)
+      return true;
+
+      if (
+        selectedPopulationOption === "medium" &&
+        population >= 10000 && population <= 1000000
+      )
+        return true;
+  
+
+        if (selectedPopulationOption === "small" && population <= 10000)
+        return true;
+
+    if (selectedPopulationOption === "all") return true;
+
+    return false;
+  }).forEach(value => finalData.push(value));
+
+  return finalData;
+}
+
 export class Search extends Component {
   state = {
+    // Options
+    population: "all", // small (<10,000), medium (100,000), large (1,000,000+), all
+
+    // Map
     selected: undefined,
     hover: undefined
+  };
+
+  populationClick = size => {
+    this.setState({ population: size });
   };
 
   render() {
@@ -50,7 +90,26 @@ export class Search extends Component {
       <div style={{ height: "100%" }}>
         <Grid container spacing={0}>
           <Grid item xs={3} style={{ border: "1px solid red" }}>
-            <h1>item</h1>
+            <PopulationButton
+              type="small"
+              population={this.state.population}
+              populationClick={this.populationClick}
+            />
+            <PopulationButton
+              type="medium"
+              population={this.state.population}
+              populationClick={this.populationClick}
+            />
+            <PopulationButton
+              type="large"
+              population={this.state.population}
+              populationClick={this.populationClick}
+            />
+            <PopulationButton
+              type="all"
+              population={this.state.population}
+              populationClick={this.populationClick}
+            />
           </Grid>
           <Grid item xs={6} style={{ border: "1px solid blue" }}>
             <div style={this.state.hover ? { cursor: "pointer" } : {}}>
@@ -63,7 +122,7 @@ export class Search extends Component {
                 center={[-100, 61.0]}
                 zoom={[2]}
               >
-                {data.places.map(place => {
+                {getData(this.state).map(place => {
                   const name = place.name;
                   return (
                     <Layer
