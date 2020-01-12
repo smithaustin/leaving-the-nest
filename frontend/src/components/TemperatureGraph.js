@@ -46,8 +46,7 @@ export class TemperatureGraph extends Component {
             <div>
                 { this.state.data && (
                     <AreaChart width={300} height={250}
-                    data={this.state.data}
-                    margin={{top: 20, right: 20, bottom: 20, left: 20}}>
+                    data={this.state.data}>
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="month" />
                     <YAxis />

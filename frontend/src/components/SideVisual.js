@@ -6,6 +6,7 @@ import {
     LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, AreaChart, Area,
 } from 'recharts';
 import TemperatureGraph from "./TemperatureGraph";
+import LivingCostGraph from "./LivingCost";
 
 
 export class SideVisual extends Component {
@@ -24,6 +25,7 @@ export class SideVisual extends Component {
                 <h2>{this.props.industry}</h2>
                 <p>{this.props.population}</p>
                 <TemperatureGraph location={this.props.location}/>
+                <LivingCostGraph/>
             </div>
         );
     }
