@@ -36,6 +36,12 @@ const data = {
             salary: 1000,
             cost_of_living: 1500,
             safety_rating: 3
+        },
+        {
+            name: "calgary",
+            population: 1019942,
+            lat: 51.05,
+            long: -114.09
         }
     ]
 };
@@ -115,7 +121,10 @@ export class MapVisual extends Component {
                                 key={name}
                                 id={name}
                                 paint={{
-                                    "circle-radius": 15,
+                                    "circle-radius": (this.state.hover && this.state.hover.name === name) ||
+                                        (this.state.selected && this.state.selected.name === name)
+                                        ? 15
+                                        : 10,
                                     "circle-color": "#29066B"
                                 }}
                                 // layout={{

@@ -7,7 +7,7 @@ import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import ValueButton from "./ValueButton";
-
+import InputLabel from "@material-ui/core/InputLabel";
 
 export class SideControl extends Component {
     constructor(props) {
@@ -82,10 +82,11 @@ export class SideControl extends Component {
                     <p>Vancouver</p>
                 </Grid>
 
-                <Grid item style={{ width: "100%" }}>
+                <Grid item style={{ width: "100%", border: "4px solid #c4c4c4", padding: "6px", margin: "10px", borderRadius: "5px"}}>
                     {/* <h2>Industry</h2> */}
                     {this.state.industries.length > 0 && (
                         <FormControl style={{ width: "100%" }}>
+                            <InputLabel id="demo-simple-select-label">Industry</InputLabel>
                             <Select
                                 value={this.state.industry}
                                 onChange={this.handleIndustryChange}
@@ -101,7 +102,7 @@ export class SideControl extends Component {
                 <Grid item style={{borderTop: '1px solid #C4C4C4', width: "100%"}}>
                     <h2 style={{color: "#29066B"}}>Population</h2>
                     <ButtonGroup size="small" aria-label="small outlined button group">
-                        {["Small", "Medium", "Large", "All"].map((value, index) => {
+                        {["Small", "Medium", "Large"].map((value, index) => {
                             return (
                                 <ValueButton
                                     type={value}

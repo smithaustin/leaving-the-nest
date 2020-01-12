@@ -26,7 +26,8 @@ export class TopBar extends Component {
                 container 
                 direction="row"
                 justify="flex-start"
-                alignItems="center"    
+                alignItems="center"
+                style={{borderBottom: "3px solid #c4c4c4"}}
             >
                 <img className="logo" alt="logo" src="./assets/logo.svg"></img>
             </Grid>

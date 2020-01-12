@@ -13,11 +13,37 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 //   let finalData = [];
 //   const selectedPopulationOption = state.population;
 
-//   data.places
-//     .filter(place => {
-//       const { population } = place;
-//       if (selectedPopulationOption === "large" && population > 1000000)
-//         return true;
+const data = {
+  places: [
+    {
+      name: "toronto",
+      population: 5000,
+      lat: 43.65107,
+      long: -79.347015,
+      salary: 30000,
+      cost_of_living: 1000,
+      safety_rating: 5
+    },
+    {
+      name: "vancouver",
+      population: 50000,
+      lat: 49.246292,
+      long: -123.116226,
+      salary: 8000,
+      cost_of_living: 2000,
+      safety_rating: 9
+    },
+    {
+      name: "montréal",
+      population: 1000000000,
+      lat: 45.508888,
+      long: -73.561668,
+      salary: 1000,
+      cost_of_living: 1500,
+      safety_rating: 3
+    }
+  ]
+};
 
 //       if (
 //         selectedPopulationOption === "medium" &&
@@ -86,7 +112,7 @@ export class Main extends Component {
     return (
       <div style={{ height: "100%" }}>
         <Grid container spacing={0}>
-          <Grid item xs={2} style={{ border: "1px solid black" }}>
+          <Grid item xs={2}>
             <SideControl onIndustryChange={this.handleIndustryChange} onPopulationChange={this.handlePopulationChange}/>
             <p></p>
 
