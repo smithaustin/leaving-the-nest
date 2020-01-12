@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import ReactMapboxGl, { Layer, Feature } from "react-mapbox-gl";
 import Grid from "@material-ui/core/Grid";
 import DataGraph from "./components/DataGraph";
-import PopulationButton from "./components/PopulationButton";
+import ValueButton from "./componetns/ValueButton";
 import { TopControls } from "./components/TopControls";
 import { geolocated } from "react-geolocated";
 
@@ -129,31 +129,31 @@ export class Search extends Component {
             {/* Population Density */}
             <div>
               <h2>Population Density</h2>
-            {/* <PopulationButton
-              type="small"
+            
+           
+   
+            <ButtonGroup size="small" aria-label="small outlined button group">
+            <ValueButton
+              type="Small"
               value={this.state.population}
               click={this.populationClick}
             />
-            <ValueButton
-              type="medium"
+               <ValueButton
+              type="Medium"
               value={this.state.population}
               click={this.populationClick}
             />
-            <ValueButton
+   <ValueButton
               type="large"
               value={this.state.population}
               click={this.populationClick}
             />
-            <ValueButton
+           
+           <ValueButton
               type="all"
-              population={this.state.population}
-              populationClick={this.populationClick}
-            /> */}
-            <ButtonGroup size="small" aria-label="small outlined button group">
-              <Button>Small</Button>
-              <Button>Medium</Button>
-              <Button>Large</Button>
-              <Button>All</Button>
+              value={this.state.population}
+              click={this.populationClick}
+            />
               </ButtonGroup>
             </div>
 
