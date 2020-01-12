@@ -31,9 +31,6 @@ export class DataGraph extends Component {
     const {title, placeName} = prop;
     const data = getData(title, placeName, prop.data.places)
 
-    console.log("-----")
-    console.log(data)
-    console.log("-----")
     return (
       <div>
         <BarChart width={300} height={180} data={data}>

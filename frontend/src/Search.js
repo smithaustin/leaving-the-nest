@@ -39,19 +39,6 @@ const data = {
   ]
 };
 
-function getData(variableName) {
-  let graphData = [];
-
-  data.places.forEach(place => {
-    graphData.push({
-      name: place.name,
-      data: place[variableName]
-    });
-  });
-
-  return graphData;
-}
-
 export class Search extends Component {
   state = {
     selected: undefined,
@@ -113,21 +100,23 @@ export class Search extends Component {
           <Grid item xs={3} style={{ border: "1px solid orange" }}>
             {this.state.selected && (
               <div>
-                <p><bOSelected: {this.state.selected}</p>
-                <p>Salary</p>
+                <p>
+                  <b>Selected:</b> {this.state.selected}
+                </p>
                 <DataGraph
-                  data={getData("salary")}
-                  name={this.state.selected}
+                  title={"salary"}
+                  data={data}
+                  placeName={this.state.selected}
                 />
-                <p>Cost of living</p>
                 <DataGraph
-                  data={getData("cost_of_living")}
-                  name={this.state.selected}
+                  title={"cost_of_living"}
+                  data={data}
+                  placeName={this.state.selected}
                 />
-                <p>Safety</p>
                 <DataGraph
-                  data={getData("safety_rating")}
-                  name={this.state.selected}
+                  title={"safety_rating"}
+                  data={data}
+                  placeName={this.state.selected}
                 />
               </div>
             )}
