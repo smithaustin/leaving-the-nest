@@ -1,0 +1,119 @@
+{
+	"calgary": {
+        "commute_mode": [
+            {
+                "name": "Car, truck, van - as a driver",
+                "count": 433730,
+                "rate": 0.710339914345843
+            },
+            {
+                "name":"Car, truck, van - as a passenger",
+                "count": 31375,
+                "rate": 0.051384305472530895
+            },
+            {
+                "name": "Public transit",
+                "count": 96510,
+                "rate": 0.158058942506899
+            },
+            {
+                "name": "Walked",
+                "count": 30265,
+                "rate": 0.049566406537885174
+            },
+            {
+                "name": "Bicycle",
+                "count": 9860,
+                "rate": 0.016148183329375444
+            }
+        ]
+    },
+	"montréal": {
+        "commute_mode": [
+            {
+                "name": "Car, truck, van - as a driver",
+                "count": 1013430,
+                "rate": 0.6295886734548075
+            },
+            {
+                "name": "Car, truck, van - as a passenger",
+                "count": 51850,
+                "rate": 0.03221157131585977
+            },
+            {
+                "name": "Public transit",
+                "count": 405265,
+                "rate": 0.2517689961296415
+            },
+            {
+                "name": "Walked",
+                "count": 89475,
+                "rate": 0.05558592755036747
+            },
+            {
+                "name": "Bicycle",
+                "count": 36415,
+                "rate": 0.022622649362912896
+            }
+        ]
+    },
+    "toronto": {
+        "commute_mode": [
+            {
+                "name": "Car, truck, van - as a driver",
+                "count": 1509390,
+                "rate": 0.6023549224503805
+            },
+            {
+                "name": "Car, truck, van - as a passenger",
+                "count": 139630,
+                "rate": 0.055722389721507774
+            },
+            {
+                "name": "Public transit",
+                "count": 656330,
+                "rate": 0.26192276764246364
+            },
+            {
+                "name": "Walked",
+                "count": 136810,
+                "rate": 0.054597007360878594
+            },
+            {
+                "name": "Bicycle",
+                "count": 38460,
+                "rate": 0.015348299854538344
+            }
+        ]
+    },
+	"vancouver": {
+        "commute_mode": [
+            {
+                "name": "Car, truck, van - as a driver",
+                "count": 679310,
+                "rate": 0.6307691593427767
+            },
+            {
+                "name": "Car, truck, van - as a passenger",
+                "count": 54145,
+                "rate": 0.05027600967542748
+            },
+            {
+                "name": "Public transit",
+                "count": 229800,
+                "rate": 0.21337938911096563
+            },
+            {
+                "name": "Walked",
+                "count": 73885,
+                "rate": 0.06860546633796212
+            },
+            {
+                "name": "Bicycle",
+                "count": 26595,
+                "rate": 0.024694625123612406
+            }
+        ]
+    }
+}
+

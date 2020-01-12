@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import TemperatureGraph from "./TemperatureGraph";
 import LivingCostGraph from "./LivingCost";
+import CommutingGraph from "./CommutingGraph";
 
 
 export class SideVisual extends Component {
@@ -22,6 +23,7 @@ export class SideVisual extends Component {
                 {/* <h2>{this.props.population}</h2> */}
                 <h2>Annual Climate</h2>
                 <TemperatureGraph location={this.props.location}/>
+                <CommutingGraph location={this.props.location}/>
                 <h2>Living Cost</h2>
                 <LivingCostGraph place={this.props.location} />
             </div>
