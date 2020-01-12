@@ -10,10 +10,6 @@ import {
   } from "recharts";
   import axios from 'axios';
 
-function getData() {
-    
-}
-
 export class LivingCostGraph extends Component {
    
     
@@ -45,8 +41,6 @@ export class LivingCostGraph extends Component {
 
     render() {
 
-        const prop = this.props;
-        const {title, placeName} = prop;
         // const data = getData(title, placeName)
         // console.log(data)
         // console.log("here")
