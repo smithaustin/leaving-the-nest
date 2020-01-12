@@ -10,6 +10,10 @@ import {
   } from "recharts";
   import axios from 'axios';
 
+function getSelectedColor(name, selectedName) {
+    return "#" + (selectedName === name ? "4326d4": "d0cce0");
+}
+
 export class LivingCostGraph extends Component {
    
     
@@ -33,18 +37,15 @@ export class LivingCostGraph extends Component {
                 'name':"Rent for One Bedroom",
                 'vancouver': van.data.living_cost,
                 'calgary': cal.data.living_cost,
-                'montreal': mon.data.living_cost,
+                'montréal': mon.data.living_cost,
                 'toronto': tor.data.living_cost
             }]
         });
     }
 
     render() {
+        const {place} = this.props;
 
-        // const data = getData(title, placeName)
-        // console.log(data)
-        // console.log("here")
-    
         return(
             <div>
                 { this.state.data && (
@@ -56,10 +57,10 @@ export class LivingCostGraph extends Component {
                     <YAxis />
                     <Tooltip />
                     <Legend />
-                    <Bar dataKey="vancouver" fill="#29006D"/>
-                    <Bar dataKey="calgary" fill="#C02323"/>
-                    <Bar dataKey="montreal" fill="#F17E23"/>
-                    <Bar dataKey="toronto" fill="EBBE28"/>
+                    <Bar dataKey="vancouver" fill={getSelectedColor("vancouver", place)}/>
+                    <Bar dataKey="calgary" fill={getSelectedColor("calgary", place)}/>
+                    <Bar dataKey="montréal" fill={getSelectedColor("montréal", place)}/>
+                    <Bar dataKey="toronto" fill={getSelectedColor("toronto", place)}/>
                 </BarChart>
                 )}
             </div>
